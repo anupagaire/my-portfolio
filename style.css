@@ -398,6 +398,9 @@ section .title::after{
 .skills-content .right .wordpress::before{
     width: 70%;
 }
+.skills-content .right .photoshop::before{
+    width: 65%;
+}
 .skills-content .right .html::before{
     width: 90%;
 }
