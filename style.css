@@ -77,15 +77,13 @@ section .title::after{
     transform: translateX(-50%);
 }
 
-.navbar {
-    position: fixed;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
+nav{
+  position: fixed;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 998;
+  transition: all 0.3s ease;
+  font-family: 'Ubuntu', sans-serif;
 }
 .navbar a {
     color: #fff;
