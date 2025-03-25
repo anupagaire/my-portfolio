@@ -77,15 +77,30 @@ section .title::after{
     transform: translateX(-50%);
 }
 
-/* navbar styling */
-.navbar{
+.navbar {
     position: fixed;
     width: 100%;
-    z-index: 999;
-    padding: 5px 0;
-    font-family: 'Ubuntu', sans-serif;
-    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
 }
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.navbar a:hover {
+    color: #f9a825;
+}
+
+
+
+
 .navbar.sticky{
     padding: 15px 0;
     background: rgb(139, 139, 214);
@@ -588,3 +603,49 @@ footer span a:hover{
         line-height: 38px;
     }
 }
+/* View Design Button */
+.view-design {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #f9a825;
+    color: #0d0d0d;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.view-design:hover {
+    background: #ffb300;
+}
+
+
+.design-section {
+    text-align: center;
+    padding: 100px 20px;
+    background: #1b1b1b;
+}
+.design-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.design-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+.design-grid img:hover {
+    transform: scale(1.05);
+}
+
