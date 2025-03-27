@@ -1,73 +1,104 @@
-$(document).ready(function(){
-    $(window).scroll(function(){
-        // sticky navbar on scroll script
-        if(this.scrollY > 20){
+$(document).ready(function () {
+    $(window).scroll(function () {
+        // Sticky navbar on scroll
+        if (this.scrollY > 20) {
             $('.navbar').addClass("sticky");
-        }else{
+        } else {
             $('.navbar').removeClass("sticky");
         }
-        
-        // scroll-up button show/hide script
-        if(this.scrollY > 500){
+
+        // Scroll-up button show/hide
+        if (this.scrollY > 500) {
             $('.scroll-up-btn').addClass("show");
-        }else{
+        } else {
             $('.scroll-up-btn').removeClass("show");
         }
     });
 
-    // slide-up script
-    $('.scroll-up-btn').click(function(){
-        $('html').animate({scrollTop: 0});
-        // removing smooth scroll on slide-up button click
+
+    $('.scroll-up-btn').click(function () {
+        $('html').animate({ scrollTop: 0 });
+        // Removing smooth scroll on slide-up button click
         $('html').css("scrollBehavior", "auto");
     });
 
-    $('.navbar .menu li a').click(function(){
-        // applying again smooth scroll on menu items click
+    $('.navbar .menu li a').click(function () {
+        // Applying smooth scroll on menu items click
         $('html').css("scrollBehavior", "smooth");
     });
 
-    // toggle menu/navbar script
-    $('.menu-btn').click(function(){
+    // Toggle menu/navbar script
+    $('.menu-btn').click(function () {
         $('.navbar .menu').toggleClass("active");
         $('.menu-btn i').toggleClass("active");
     });
 
-    // // typing text animation script
-    // var typed = new Typed(".typing", {
-    //     strings: ["Programmar", "Developer", "Artist", "Youtuber", "Singer"],
-    //     typeSpeed: 100,
-    //     backSpeed: 60,
-    //     loop: true
-    // });
-
-    // var typed = new Typed(".typing-2", {
-    //     strings: ["Programmar", "Developer", "Artist", "Youtuber", "Singer"],
-    //     typeSpeed: 100,
-    //     backSpeed: 60,
-    //     loop: true
-    // });
-
-    // owl carousel script
+    // Owl Carousel
     $('.carousel').owlCarousel({
         margin: 20,
         loop: true,
         autoplay: true,
-        autoplayTimeOut: 2000,
+        autoplayTimeout: 2000,
         autoplayHoverPause: true,
         responsive: {
-            0:{
+            0: {
                 items: 1,
                 nav: false
             },
-            600:{
+            600: {
                 items: 2,
                 nav: false
             },
-            1000:{
+            1000: {
                 items: 3,
                 nav: false
             }
         }
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll('.image-container img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.close');
+    let currentIndex = 0;
+
+    // Open Lightbox
+    function openLightbox(imgElement) {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = imgElement.src;
+        currentIndex = [...images].indexOf(imgElement);
+    }
+
+    // Close Lightbox
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+    }
+
+    // Show Next Image
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+    }
+
+    // Show Previous Image
+    function showPrevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+    }
+
+    // Event Listeners
+    images.forEach(img => img.addEventListener('click', function () {
+        openLightbox(this);
+    }));
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowRight') showNextImage();
+        if (event.key === 'ArrowLeft') showPrevImage();
+        if (event.key === 'Escape') closeLightbox();
     });
 });
