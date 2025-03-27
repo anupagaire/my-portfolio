@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anupa's Design Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Anupa's Graphic Design Portfolio</h1>
+        <p>Creative designs that speak louder than words.</p>
+    </header>
+
+    <section class="gallery">
+        <div class="image-container">
+            <img src="images/fruit poster1.png" alt="Design 1" onclick="openLightbox(this)">
+            <img src="images/new opening.png" alt="Design 2" onclick="openLightbox(this)">
+            <img src="images/ronaldo.png" alt="Design 3" onclick="openLightbox(this)">
+            <img src="images/food opening.png" alt="banner" onclick="openLightbox(this)">
+            <img src="images/fruit poster.png" alt="Design 5" onclick="openLightbox(this)">
+            <img src="images/nail banner.png" alt="Design 4" onclick="openLightbox(this)"> 
+            <img src="images/anukaran youtube cover.png" alt="cover" onclick="openLightbox(this)">
+        </div>
+    </section>
+
+    <!-- Lightbox for full-screen display -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" class="lightbox-content">
+        <button class="prev" onclick="showPrevImage()">&#10094;</button>
+        <button class="next" onclick="showNextImage()">&#10095;</button>
+    </div>
+
+    <footer>
+        <p>Let's collaborate! <a href="mailto:aanupa.gaire@example.com">Contact me</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
