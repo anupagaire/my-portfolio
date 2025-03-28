@@ -5,38 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anupa's Design Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        .next-page {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .next-page p {
+            font-size: 1.2em;
+            color: #f0eeee;
+            margin-bottom: 10px;
+        }
+        .next-page button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .next-page button:hover {
+            background-color: #e65c00;
+        }
+    </style>
 </head>
 <body>
-
     <header>
-        <h1>Anupa's Graphic Design Portfolio</h1>
+        <h1><i class="fas fa-paint-brush"></i> Anupa's Graphic Design Portfolio</h1>
         <p>Creative designs that speak louder than words.</p>
     </header>
 
+    <div class="next-page">
+        <p>My design original files are listed here. Click below to explore more!</p>
+        <button onclick="window.location.href='nextpage.html'">PSD & AI Files</button>
+    </div>
+
     <section class="gallery">
         <div class="image-container">
-               
-            <img src="images/fruit poster1.png" alt="Design 1" onclick="openLightbox(this)">
-              <img src="images/fly.png" alt="Design 2" onclick="openLightbox(this)">
-            <img src="images/new opening.png" alt="Design 2" onclick="openLightbox(this)">
-            <img src="images/ronaldo.png" alt="Design 3" onclick="openLightbox(this)">
-            <img src="images/food opening.png" alt="banner" onclick="openLightbox(this)">
-            <img src="images/FACEBOOK AND INSTAGRAM.png" alt="Design 4" onclick="openLightbox(this)"> 
-            <img src="images/fruit poster.png" alt="Design 5" onclick="openLightbox(this)">
-            <img src="images/cooking .png" alt="Design 4" onclick="openLightbox(this)"> 
-            <img src="images/nail banner.png" alt="Design 4" onclick="openLightbox(this)"> 
-             <img src="images/hiring.png" alt="Design 4" onclick="openLightbox(this)"> 
-            <img src="images/anukaran youtube cover.png" alt="cover" onclick="openLightbox(this)">
+            <img src="images/fruit poster1.png" alt="Design 1">
+            <img src="images/ronaldo.png" alt="Design 4">
+            <img src="images/new opening.png" alt="Design 3">
+            <img src="images/byd_drive.png.png" alt="Design 2">
+            <img src="images/nail banner.png" alt="Design 9"> 
+            <img src="images/fly.png" alt="Design 2">
+     <img src="images/newyork typography.png" alt="Design 10"> 
+            <img src="images/food opening.png" alt="Design 5">
+            <img src="images/FACEBOOK AND INSTAGRAM.png" alt="Design 6"> 
+            <img src="images/fruit poster.png" alt="Design 7">
+            <img src="images/cooking.png" alt="Design 8"> 
+      
+            <img src="images/hiring.png" alt="Design 10"> 
+            <img src="images/anukaran youtube cover.png" alt="Cover">
         </div>
     </section>
-
-    <!-- Lightbox for full-screen display -->
-    <div id="lightbox" class="lightbox">
-        <span class="close" onclick="closeLightbox()">&times;</span>
-        <img id="lightbox-img" class="lightbox-content">
-        <button class="prev" onclick="showPrevImage()">&#10094;</button>
-        <button class="next" onclick="showNextImage()">&#10095;</button>
-    </div>
 
     <footer>
         <p>Let's collaborate! <a href="mailto:aanupa.gaire@example.com">Contact me</a></p>
