@@ -1,0 +1,74 @@
+
+/* Each item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+/* The circle */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background: #5cd6b1;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item.left::before {
+  right: -10px; /* align with line */
+}
+
+.timeline-item.right::before {
+  left: -10px; 
+}
+
+.timeline-year {
+  display: inline-block;
+  background: #111;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.timeline-content {
+  font-weight: bold;
+  background: #f0f0f0;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+
+/* The vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 60px; /* Start the line below the heading */
+  transform: translateX(-50%);
+  width: 8px;
+  height: 90%;
+  background: #5cd6b1;
+  border-radius: 7px;
+}
+
+/* Adjust the timeline container */
+.timeline {
+  position: relative;
+  padding-top: 60px; /* Match the top offset of the line */
+}
