@@ -1,10 +1,11 @@
+// Components/Achievements.jsx
 import React from "react";
 import { achievements } from "../achievementdata.js";
 import "./Achievement.css"; 
 
 const Achievements = () => {
   return (
-    <div className="relative w-4/5 mx-auto py-10" >
+    <div className="relative w-4/5 mx-auto py-10">
       <h2 className="text-center text-2xl font-bold mb-10">ACHIEVEMENT</h2>
       <div className="timeline">
         {achievements.map((ach, index) => (

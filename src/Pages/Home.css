@@ -1,0 +1,73 @@
+/* Home.css */
+.second-image-container {
+  position: relative;
+  height: 100vh; /* Full viewport height on desktop */
+  z-index: 5; /* Below navbar (z-index: 1000) but above Achievements */
+  margin: 0; /* Remove any margins */
+  top: 0; /* Start from natural flow, adjusted by translateY */
+}
+
+.second-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image covers area without distortion */
+  position: absolute;
+  top: 0; /* Align with container top initially */
+  will-change: transform; /* Optimize for smooth animation */
+}
+
+.achievements-container {
+  padding: 40px;
+  background-color: #ffffff; /* White background to match your design */
+  min-height: 100vh; /* Match second image height on desktop */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure full height */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .second-image-container {
+    height: 75vh; /* Slightly reduced height for tablets */
+  }
+
+  .achievements-container {
+    min-height: 75vh; /* Match second image height */
+  }
+}
+
+@media (max-width: 768px) {
+  .second-image-container {
+    height: 50vh; /* Smaller height for mobile */
+    width: 100%; /* Full width on mobile */
+  }
+
+  .second-image {
+    height: 100%;
+  }
+
+  .achievements-container {
+    padding: 20px;
+    min-height: auto; /* Natural height on mobile */
+    width: 100%; /* Full width on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .second-image-container {
+    height: 40vh; /* Even smaller for very small screens */
+  }
+
+  .achievements-container {
+    padding: 15px;
+  }
+}
