@@ -21,7 +21,7 @@ const SearchSection = ({ searchTerm, onSearchChange }) => (
   </div>
 );
 
-const ProjectSupervise = () => {
+const ProjectSupervisor = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -193,4 +193,4 @@ const ProjectSupervise = () => {
   );
 };
 
-export default ProjectSupervise;
+export default ProjectSupervisor;
