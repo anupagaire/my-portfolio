@@ -1,31 +1,30 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-   import Achievements from './Components/Achievements';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
 import Home from "./Pages/Home";
-import Research from "./Pages/Research" 
-import Courses from "./Pages/Courses" 
-import Projectsupervisor from "./Pages/Projectsupervisor" 
+import Research from "./Pages/Research";
+import Courses from "./Pages/Courses";
+import ProjectSupervise from "./Pages/ProjectSupervisor";
 import Navbar from "./Components/Navbar.jsx";
-import React from 'react';
-import AdminLogin from './Components/AdminLogin.jsx';
-import AdminDashboard from './Components/AdminDashboard.jsx';
-   function App() {
-     return (
-       <Router>
-              <Navbar />
+import React from "react";
+import ResearchDetail from './Pages/ResearchDetail';
+import NotFound from './Components/NotFound';
 
-         <Routes>
-          <Route path="/" element={<Home />} />
+function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/courses" element={<Courses />} />
-        <Route path="/projectsupervisor" element={<Projectsupervisor />} />
+        <Route path="/projects" element={<ProjectSupervise />} />
         <Route path="/research" element={<Research />} />
-           <Route path="/" element={<Achievements />} />
-           <Route path="/admin/login" element={<AdminLogin />} />
-           <Route path="/admin/dashboard" element={<AdminDashboard />} />
-           <Route path="*" element={<Achievements />} /> {/* Fallback to portfolio */}
-         </Routes>
-       </Router>
-     );
-   }
+        <Route path="/research/:slug" element={<ResearchDetail />} />
+        <Route path="/courses/masters" element={<Courses />} /> {/* Add for dropdown */}
+        <Route path="/courses/bachelors" element={<Courses />} /> {/* Add for dropdown */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  );
+}
 
-   export default App;
+export default App;
