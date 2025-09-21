@@ -21,7 +21,7 @@ const Hero = () => {
     <section
       ref={heroRef}
       className="relative min-h-[80vh] sm:min-h-screen flex items-center justify-center
-                 overflow-hidden pt-28 sm:pt-20 md:pt-16 bg-gradient-to-br from-[#1b1c33] to-[#0d0e1a]"
+                 overflow-hidden pt-28 sm:pt-20 md:pt-16"
     >
       <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center gap-10">
         
@@ -46,7 +46,7 @@ const Hero = () => {
             <button
               onClick={handleExplore}
               className="w-full sm:w-auto px-6 py-3 rounded-full
-                         bg-gradient-to-r from-purple-500 to-blue-500
+                         bg-purple-500 
                          text-white font-semibold hover:scale-105 transition-transform"
             >
               Explore Research

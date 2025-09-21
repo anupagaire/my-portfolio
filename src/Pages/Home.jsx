@@ -138,7 +138,7 @@ const Home = () => {
         style={{
           background: `
             radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(147, 51, 234, 0.3) 0%, transparent 50%),
-            linear-gradient(135deg, #11119bff 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%)
+            linear-gradient(135deg, #000000 0%, #000000 25%, #000000 50%, #060606f2 75%, #000000 100%)
           `
         }}
       >
@@ -189,7 +189,7 @@ const Home = () => {
                   </div>
                   <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white/90 animate-slide-in-left delay-400">
                     I am{" "}
-                    <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                    <span className="bg-white bg-clip-text text-transparent">
                       Anupa Gaire
                     </span>
                   </div>
@@ -197,7 +197,7 @@ const Home = () => {
                     A passionate{" "}
                     <span className="inline-block min-w-[140px] sm:min-w-[180px] text-left">
                       <span 
-                        className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent font-bold animate-text-glow"
+                        className="bg-white bg-clip-text text-transparent font-bold animate-text-glow"
                         key={currentWord}
                       >
                         {words[currentWord]}
@@ -223,7 +223,7 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-slide-in-left delay-1200">
                 <button 
                   onClick={handleSeeMoreClick}
-                  className="group relative overflow-hidden bg-gradient-to-r from-purple-600 via-purple-700 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:scale-105 text-sm sm:text-base"
+                  className="group relative overflow-hidden bg-purple-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:scale-105 text-sm sm:text-base"
                 >
                   <span className="relative z-10 flex items-center gap-2 sm:gap-3">
                     <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-180 transition-transform duration-500" />

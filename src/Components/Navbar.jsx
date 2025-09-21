@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, User, Briefcase, Code2, BookOpen, Mail, Sparkles } from 'lucide-react';
+import { Menu, X, Home, User, Briefcase, Code2, BookOpen, Sparkles } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,7 +30,7 @@ const Navbar = () => {
     { name: 'Projects', path: '/projects', icon: Code2, isScroll: false },
     { name: 'Skills', path: 'skills', icon: Sparkles, isScroll: true },
     { name: 'Internship', path: 'internships', icon: Briefcase, isScroll: true },
-    // { name: 'Research', path: '/research', icon: BookOpen, isScroll: false },
+    { name: 'Research', path: '/research', icon: BookOpen, isScroll: false },
     // { name: 'Experience', path: '/experience', icon: Briefcase, isScroll: false },
   ];
 
@@ -78,13 +78,12 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA */}
           <div className="hidden md:block">
             <Link
               to="/contact"
-              className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:scale-105 transition"
+              className="bg-purple-600 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:scale-105 transition"
             >
-              <Mail className="w-4 h-4 inline mr-1" /> Let's Connect
+              Let's Connect
             </Link>
           </div>
 

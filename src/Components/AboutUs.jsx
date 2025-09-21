@@ -68,7 +68,7 @@ const AboutSection = () => {
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <User className="w-8 h-8 text-purple-400" />
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold bg-white bg-clip-text text-transparent">
               About Me
             </h2>
           </div>
