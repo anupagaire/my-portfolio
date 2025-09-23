@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Code, CheckCircle, Clock, Github } from 'lucide-react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { projects } from '../data/projectdata.js';
 
 const ProjectDetail = () => {
@@ -13,41 +11,12 @@ const ProjectDetail = () => {
   useEffect(() => {
     const foundProject = projects.find(p => p.slug === slug);
     setProject(foundProject);
-    
-    const initAOS = setTimeout(() => {
-      AOS.init({ duration: 1000 });
-    }, 100);
+      window.scrollTo(0, 0); // scroll to top when the project loads
 
-    return () => clearTimeout(initAOS);
   }, [slug]);
 
   const handleBackClick = () => {
     navigate('/projects');
-  };
-
-  const getStatusColor = (status) => {
-    switch (status.toLowerCase()) {
-      case 'completed':
-        return 'from-green-500 to-emerald-500';
-      case 'planning':
-        return 'from-yellow-500 to-orange-500';
-      case 'in progress':
-        return 'from-blue-500 to-cyan-500';
-      default:
-        return 'from-gray-500 to-gray-600';
-    }
-  };
-
-  const getStatusIcon = (status) => {
-    switch (status.toLowerCase()) {
-      case 'completed':
-        return <CheckCircle className="w-5 h-5" />;
-      case 'planning':
-      case 'in progress':
-        return <Clock className="w-5 h-5" />;
-      default:
-        return <Clock className="w-5 h-5" />;
-    }
   };
 
   if (!project) {
@@ -57,7 +26,7 @@ const ProjectDetail = () => {
           <h2 className="text-2xl mb-4">Project not found</h2>
           <button
             onClick={() => navigate('/projects')}
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors"
+            className="bg-purple-600 text-white mb-5 px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors"
           >
             Back to Projects
           </button>
@@ -68,22 +37,21 @@ const ProjectDetail = () => {
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Background Elements */}
-      
-
-      <div className="w-full max-w-6xl mx-auto py-12 px-6 relative z-10">
+      <div className="w-full max-w-9xl mx-auto py-12 px-6 relative z-10">
         {/* Back Button */}
-        <div className="mb-8" data-aos="fade-right" data-aos-duration="800">
+        <div className="mb-3">
           <button
             onClick={handleBackClick}
-            className="group flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 bg-gray-800/50 backdrop-blur-sm px-6 py-3 rounded-xl border border-gray-700/50 hover:border-gray-600"
+            className="group flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 bg-gray-800/50 px-9 py-5 rounded-xl border border-gray-700/50 mb-5"  style={{ marginTop: "1cm" }}
+
           >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
+            <ArrowLeft className="w-5 h-5 " />
             Back to Projects
           </button>
         </div>
 
-        <div className="mb-12" data-aos="fade-up" data-aos-duration="1000">
+        {/* Main Info */}
+        <div className="mb-12">
           <div className="bg-gray-900/60 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 shadow-2xl">
             <div className="flex flex-col lg:flex-row gap-8">
               <div className="lg:w-1/2">
@@ -93,19 +61,15 @@ const ProjectDetail = () => {
                     alt={project.title}
                     className="w-full h-80 object-cover transform hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
               </div>
 
               <div className="lg:w-1/2 space-y-6">
                 <div>
-                  <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                  <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 ">
                     {project.title}
                   </h1>
                   <div className="flex items-center gap-4 mb-4">
-                    <div className={`flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${getStatusColor(project.status)} text-white font-medium`}>
-                      {getStatusIcon(project.status)}
-                    </div>
                     <div className="px-4 py-2 bg-gray-700/50 rounded-full text-gray-300 font-medium">
                       {project.category}
                     </div>
@@ -124,7 +88,7 @@ const ProjectDetail = () => {
                       rel="noopener noreferrer"
                       className="group flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
                     >
-                      <Github className="w-5 h-5" />
+                     
                       View Project Link
                       <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </a>
@@ -135,12 +99,11 @@ const ProjectDetail = () => {
           </div>
         </div>
 
-        <div className="mb-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-          <div className="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
+        {/* Contribution */}
+        <div className="mb-12">
+          <div className="bg-gray-900/60  rounded-2xl p-8 border border-gray-700/50">
             <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-              <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
+             
               My Contribution
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed">
@@ -149,10 +112,8 @@ const ProjectDetail = () => {
           </div>
         </div>
 
-      
-
-        {/* Detailed Description */}
-        <div className="mb-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+        {/* Project Overview */}
+        <div className="mb-12">
           <div className="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
             <h2 className="text-2xl font-bold text-white mb-6">Project Overview</h2>
             <p className="text-gray-300 text-lg leading-relaxed">
@@ -161,28 +122,48 @@ const ProjectDetail = () => {
           </div>
         </div>
 
-        
-  <div className="mb-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-          <div className="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-              <Code className="w-6 h-6 text-purple-400" />
-              Technologies Used
-            </h2>
-            <div className="flex flex-wrap gap-3">
-              {project.technologies.map((tech, index) => (
-                <div
-                  key={index}
-                  className="px-4 py-2 bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-xl text-purple-300 font-medium backdrop-blur-sm hover:from-purple-600/30 hover:to-blue-600/30 transition-all duration-300"
-                >
-                  {tech}
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Technologies */}
+<div className="mb-12">
+  <div className="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
+    <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+      <Code className="w-6 h-6 text-purple-400" />
+      Technologies Used
+    </h2>
+    <div className="flex flex-wrap gap-3">
+      {project.technologies.map((tech, index) => (
+        <div
+          key={index}
+          className="px-4 py-2 bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-xl text-purple-300 font-medium backdrop-blur-sm hover:from-purple-600/30 hover:to-blue-600/30 transition-all duration-300"
+        >
+          {tech}
         </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+{project.screenshots && project.screenshots.length > 0 && (
+  <div className="mb-12">
+    <div className="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
+      <h2 className="text-2xl font-bold text-white mb-6">Screenshots</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {project.screenshots.map((screenshot, index) => (
+          <div key={index} className="rounded-xl overflow-hidden shadow-lg">
+            <img
+              src={screenshot}
+              alt={`Screenshot ${index + 1}`}
+              className="w-full h-64 object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
+
 
         {/* Key Features */}
-        <div className="mb-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+        <div className="mb-12">
           <div className="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
             <h2 className="text-2xl font-bold text-white mb-6">Key Features</h2>
             <div className="grid md:grid-cols-2 gap-4">
@@ -196,36 +177,6 @@ const ProjectDetail = () => {
           </div>
         </div>
       </div>
-
-      {/* Animation Styles */}
-      <style jsx>{`
-        @keyframes blob {
-          0% {
-            transform: translate(0px, 0px) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
-          100% {
-            transform: translate(0px, 0px) scale(1);
-          }
-        }
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-        .animation-delay-6000 {
-          animation-delay: 6s;
-        }
-      `}</style>
     </div>
   );
 };

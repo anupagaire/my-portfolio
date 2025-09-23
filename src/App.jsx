@@ -9,6 +9,7 @@ import React from "react";
 import ResearchDetail from './Pages/ResearchDetail';
 import NotFound from './Components/NotFound';
 import ProjectDetail from './Components/ProjectDetail';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -22,10 +23,12 @@ function App() {
                   <Route path="/projects/:slug" element={<ProjectDetail />} />
 
         <Route path="/research/:slug" element={<ResearchDetail />} />
-        <Route path="/courses/masters" element={<Courses />} /> {/* Add for dropdown */}
-        <Route path="/courses/bachelors" element={<Courses />} /> {/* Add for dropdown */}
+        <Route path="/courses/masters" element={<Courses />} /> 
+        <Route path="/courses/bachelors" element={<Courses />} /> 
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+      <Footer/>
     </Router>
   );
 }

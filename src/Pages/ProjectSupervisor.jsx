@@ -8,15 +8,14 @@ import { projects } from '../data/projectdata.js';
 
 const technology_categories = {
   'All': [],
-  'MERN Stack': ['MongoDB', 'Express', 'React', 'Node.js', 'JavaScript'],
   'Python/AI/ML': ['Python', 'SpaCy', 'NLP', 'Machine Learning', 'CNN', 'TensorFlow', 'OpenCV', 'SymPy'],
-  'Web Development': ['PHP', 'HTML', 'CSS', 'MySQL', 'WordPress'],
+  'Web Development': ['PHP', 'HTML', 'CSS', 'MySQL', 'WordPress','MongoDB', 'Express', 'React', 'Node.js', 'JavaScript'],
   'System Programming': ['C++', 'C'],
-  'UI Framework': ['PyQt5']
+  'UI Framework': ['Figma']
 };
 
 const SearchAndFilterSection = ({ searchTerm, onSearchChange, selectedCategory, onCategoryChange }) => (
-  <div className="mb-12 space-y-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+  <div className="mb-12 space-y-6" data-aos="fade-up" >
     {/* Search Bar */}
     <div className="relative max-w-2xl mx-auto">
       <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -87,17 +86,19 @@ const ProjectSupervisor = () => {
       );
     }
 
+
     // Filter by technology category
-    if (selectedCategory !== 'All') {
-      const categoryTechs = technology_categories[selectedCategory];
-      filtered = filtered.filter((project) =>
-        project.technologies.some((tech) =>
-          categoryTechs.some((categoryTech) =>
-            tech.toLowerCase().includes(categoryTech.toLowerCase())
-          )
-        )
-      );
-    }
+if (selectedCategory !== 'All') {
+  const categoryTechs = technology_categories[selectedCategory];
+  filtered = filtered.filter((project) =>
+    project.technologies.some((tech) =>
+      categoryTechs.some(
+        (categoryTech) => tech.toLowerCase() === categoryTech.toLowerCase()
+      )
+    )
+  );
+}
+
 
     // Sort alphabetically
     filtered.sort((a, b) => a.title.localeCompare(b.title));
@@ -143,8 +144,7 @@ const ProjectSupervisor = () => {
         <div
           className={`text-center mb-16 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
           data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-delay="300"
+          
         >
           <div className="relative inline-block mb-8">
             <h1 className="text-7xl md:text-8xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent leading-tight">
@@ -175,7 +175,7 @@ const ProjectSupervisor = () => {
 
         {/* Results Info */}
         {(searchTerm || selectedCategory !== 'All') && (
-          <div className="text-center mb-8" data-aos="fade-up" data-aos-duration="800">
+          <div className="text-center mb-8" data-aos="fade-up" >
             <p className="text-gray-400">
               Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
               {searchTerm && ` for "${searchTerm}"`}
@@ -191,7 +191,6 @@ const ProjectSupervisor = () => {
               key={project.id}
               className="relative"
               data-aos="fade-up"
-              data-aos-duration="1000"
               data-aos-delay={`${index * 100}`}
             >
               <ProjectCard project={project} onClick={() => handleProjectClick(project)} />
@@ -201,7 +200,7 @@ const ProjectSupervisor = () => {
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (
-          <div className="text-center py-20" data-aos="fade-up" data-aos-duration="500">
+          <div className="text-center py-20" data-aos="fade-up">
             <div className="bg-gray-900/50  rounded-2xl p-12 border border-gray-700/50 max-w-md mx-auto">
               <BookOpen className="w-20 h-20 text-gray-400 mx-auto mb-6" />
               <h3 className="text-2xl font-semibold text-gray-300 mb-4">No projects found</h3>
@@ -222,7 +221,7 @@ const ProjectSupervisor = () => {
         )}
 
         {/* Back Home Button */}
-        <div className="text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <div className="text-center" data-aos="fade-up" >
           <button
             onClick={handleBackHome}
             className="group relative bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-10 py-5 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-2 overflow-hidden border border-purple-500/30"
