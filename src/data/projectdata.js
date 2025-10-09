@@ -4,7 +4,6 @@ import jew from "../assets/jew.jpg";
 import ecommerce from "../assets/ecommerce.jpg";
 import interfac from "../assets/interface.png";
 import explore from "../assets/explore.png";
-import cms from "../assets/cms.png";
 import moviehub from "../assets/moviehub.png";
 import solver from "../assets/screenshots/solver.png";
 import resume1 from "../assets/screenshots/resume1.png";
@@ -19,7 +18,17 @@ import dsms2 from "../assets/screenshots/dsms2.png";
 import dsms3 from "../assets/screenshots/dsms3.png";
 import dsms4 from "../assets/screenshots/dsms4.png";  
 import dsms5 from "../assets/screenshots/dsms5.png";
-
+import cms1 from "../assets/screenshots/cms1.png";
+import cms2 from "../assets/screenshots/cms2.png";
+import cms3 from "../assets/screenshots/cms3.png";
+import cms4 from "../assets/screenshots/cms4.png";
+import dp1 from "../assets/screenshots/dp1.png";
+import dp3 from "../assets/screenshots/dp3.png";
+import dp4 from "../assets/screenshots/dp4.png";
+import explore1 from "../assets/screenshots/explore1.png";
+import explore2 from "../assets/screenshots/explore2.png";
+import movie2 from "../assets/screenshots/movie2.png";
+import movie3 from "../assets/screenshots/movie3.png";
 
 
 
@@ -30,7 +39,7 @@ export const projects = [
     title: "Handwritten Polynomial Solver Using Cnn Upto Degree-3",
     description: "A user-friendly PyQt5 graphical interface allows users to interactively upload equations and view solutions.",
     image: interfac,
-     screenshots: [solver,cms],
+     screenshots: [solver],
     technologies: ["Python", "CNN", "PyQt5", "Machine Learning", "SymPy(symbolic mathematics)", "OpenCV", "TensorFlow","Keras"],
     category: "Python/AI/ML",
     status: "Completed",
@@ -117,6 +126,7 @@ export const projects = [
     title: "Explore Nepal",
     description: "A wordpress based website, with all other features needed for tourism promotion including news section and blog integration.",
     image: explore,
+    screenshots: [explore1,explore2],
     technologies: ["WordPress", "PHP", "HTML", "CSS", "MySQL", "Elementor"],
     category: "Web Development",
     status: "Completed",
@@ -137,7 +147,8 @@ export const projects = [
     id: 6,
     title: "Content Management System",
     description: "A system developed so that admin can add any type of content like (blog,contact) and manage it easily and no need of developing backend apis again and again.",
-    image: cms,
+    image: cms1,
+    screenshots: [cms1,cms2,cms3,cms4],
     technologies: ["Mern", "NodeJs", "tailwindCSS", "MongoDb", "React",],
     category: "Web Development",
     status: "In Progress",
@@ -158,12 +169,13 @@ export const projects = [
     id:7,
     title: " DP Portfolio Website",
     description: "A personal portfolio website of a professor built with React and TailwindCSS to showcase projects, research, and achievement information.",
-    image: resume,
+    image: dp1,
+    screenshots: [dp1,dp3,dp4],
     technologies: ["React", "TailwindCSS", "JavaScript", "HTML", "CSS"],
     category: "Web Development",
     status: "Completed",
     slug: "dp-portfolio-website",
-    projectUrl: "dp.squarelabs.com.np",
+    projectUrl: "https://dp.squarelabs.com.np/",
     about: "A personal portfolio website built with React and TailwindCSS to showcase projects, research, and achievement information. The website features a clean and modern design, with components for projects, research publications, and achievement section and used project and research data from the backend api provided by the professor and displayed in slider and separate page format .i also use lenis library for smooth scrolling effect.",
     contribution: "During my internship at SquareLabs, I was responsible for developing the personal portfolio website for a professor. I handled the complete frontend development using React and TailwindCSS, ensuring a responsive and visually appealing design. I also integrated data from the backend API provided by the professor to dynamically display projects and research information.",
     features: [
@@ -200,6 +212,7 @@ export const projects = [
     title: "Movie Hub – React Movie Listing App",
     description: "Movie Hub is designed as a user-friendly movie browsing application.",
     image: moviehub,
+    screenshots: [movie2,movie3],
     technologies: [ "React", "JavaScript", "HTML", "CSS"],
     category: "Web Development",
     status: "Completed",

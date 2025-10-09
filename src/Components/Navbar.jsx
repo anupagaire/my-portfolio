@@ -35,7 +35,7 @@ const Navbar = () => {
   ];
 
   // Filter nav items based on route
-  const displayedNavItems = location.pathname === '/' ? navItems : navItems.filter(item => ['Home', 'Projects'].includes(item.name));
+  const displayedNavItems = location.pathname === '/' ? navItems : navItems.filter(item => ['Home', 'Projects','Research'].includes(item.name));
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled 
@@ -43,7 +43,6 @@ const Navbar = () => {
           : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link to="/" className="group flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-lg">AG</span>

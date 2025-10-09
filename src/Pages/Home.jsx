@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { default as Lenis } from "@studio-freight/lenis";
 import { ChevronDown, Sparkles, Rocket, Code2, Brain, Zap } from "lucide-react";
 import ProjectSlider from "../Components/ProjectSlider";
-// import ResearchSlider from "../Components/ResearchSlider";
 import Skills from "../Components/skills";
 import InternshipExperience from "../Components/InternshipExperince";
 import AboutSection from "../Components/AboutUs";
