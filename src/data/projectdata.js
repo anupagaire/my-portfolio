@@ -29,7 +29,11 @@ import explore1 from "../assets/screenshots/explore1.png";
 import explore2 from "../assets/screenshots/explore2.png";
 import movie2 from "../assets/screenshots/movie2.png";
 import movie3 from "../assets/screenshots/movie3.png";
-
+import restaurent from "../assets/screenshots/restaurent.png";
+import restaurent1 from "../assets/screenshots/restaurent1.png";
+import icecream from "../assets/screenshots/icecream.png";
+import icecream1 from "../assets/screenshots/icecream1.png";
+import icecream2 from "../assets/screenshots/icecream2.png";
 
 
 
@@ -58,8 +62,32 @@ export const projects = [
 
     ]
   },
+{
+  id: 2,
+  title: "Himalayan Restaurant Website",
+  description: "A fully functional restaurant website with online reservation and menu display.",
+  image: restaurent1, 
+  screenshots: [restaurent,restaurent1], 
+  technologies: [ "React", "EmailJS", "tailwindCSS"],
+  category: "Frontend/Web Development",
+  status: "Completed",
+  slug: "himalayan-restaurant-website",
+  projectUrl: "https://github.com/anupagaire/Himalayan-Restaurant-Website",
+  about: "This project is a production-ready restaurant website featuring a fully functional online reservation system that sends booking details directly to email. The website includes a complete restaurant menu, responsive UI for mobile and desktop, and all essential sections such as home, about, services, menu, and contact.",
+  contribution: "I developed the complete frontend for the Himalayan Restaurant Website, designing responsive layouts with React and CSS, implementing the reservation form with email integration using EmailJS, and ensuring cross-device compatibility. I handled the full UI/UX design from scratch, implemented interactive menus, and tested the website for usability and responsiveness.",
+  features: [
+    "Online reservation system with email submission",
+    "Responsive UI for desktop and mobile devices",
+    "Full restaurant menu display with categories",
+    "Multiple sections: Home, About, Services, Menu, Contact",
+    "Interactive UI components with React",
+    "Production-ready website design"
+  ]
+}
+,
+
   {
-    id: 2,
+    id: 3,
     title: "Resume-Ranking-System-Using-Spacy-model",
     description: "Machine learning-based application built with Python that ranks resumes by comparing with job description using NLP techniques with SpaCy and MediaWiki for semantic matching.",
     image: resume,
@@ -81,7 +109,7 @@ export const projects = [
   },
 
   {
-    id: 3,
+    id: 4,
     title: "Ecommerce-Cosmetic-Website-Php-Mysql",
     description: "Cosmetic shopping system using html,css,js,php and mysql where user can buy products after login into the system.",
     image: ecommerce,
@@ -103,7 +131,7 @@ export const projects = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     title: "Jewellery Shopping system-WORDPRESS",
     description: "A wordpress based e-commerce website,which contain homepage,order,shop page, checkout page, payment method and all other features needed for e-commerce shopping.this deals with jewellery shopping.the website is fully responsive and mobile friendly.",
     image: jew,
@@ -122,7 +150,7 @@ export const projects = [
     ]
   },
   {
-    id: 5,
+    id: 6,
     title: "Explore Nepal",
     description: "A wordpress based website, with all other features needed for tourism promotion including news section and blog integration.",
     image: explore,
@@ -144,7 +172,7 @@ export const projects = [
     ]
   },
   {
-    id: 6,
+    id: 7,
     title: "Content Management System",
     description: "A system developed so that admin can add any type of content like (blog,contact) and manage it easily and no need of developing backend apis again and again.",
     image: cms1,
@@ -166,7 +194,7 @@ export const projects = [
     ]
   },
   {
-    id:7,
+    id:8,
     title: " DP Portfolio Website",
     description: "A personal portfolio website of a professor built with React and TailwindCSS to showcase projects, research, and achievement information.",
     image: dp1,
@@ -187,7 +215,7 @@ export const projects = [
     ]
   },
   {
-    id: 8,
+    id: 10,
     title: "Department Store Management System",
     description: "A menu-driven inventory management system built in C++ for Turbo C++, using graphics and file handling.",
     image: dsms,
@@ -231,4 +259,47 @@ export const projects = [
 "Responsive Layout: Works seamlessly on mobile, tablet, and desktop",
     ]
   },
+//   {
+//   id: 3,
+//   title: "Fresh & More – E-commerce Website",
+//   description: "A full-featured e-commerce platform with product listings, categories, cart, and checkout flow.",
+//   image: freshMoreInterface, // replace with your main project image variable
+//   screenshots: [freshMoreScreenshot], // replace with actual screenshots array
+//   technologies: ["React", "JavaScript", "CSS", "HTML", "Responsive Design", "Payment Integration (if any)"],
+//   category: "Frontend/Web Development",
+//   status: "In Progress / Ready for Deployment",
+//   slug: "fresh-and-more-ecommerce-website",
+//   projectUrl: "https://github.com/anupagaire/fresh-and-more-ecommerce-website",
+//   about: "Fresh & More is a full-featured e-commerce website with product listings, categories, cart management, and checkout functionalities. It features a modern responsive design, interactive UI, and a structure suitable for real-world online shopping platforms.",
+//   contribution: "I built the complete frontend of Fresh & More, implementing product listing pages, category filters, cart and checkout UI, and responsive layouts. I designed reusable React components, ensured smooth user interactions, and prepared the website for production deployment.",
+//   features: [
+//     "Product listing with categories and filters",
+//     "Cart management and checkout flow",
+//     "Responsive UI for mobile and desktop",
+//     "Interactive and reusable React components",
+//     "Modern e-commerce website design",
+//     "Ready for deployment to production"
+//   ]
+// }
+ {
+    id: 11,
+    title: "Ice Cream Shop – React Homepage (Figma to Code)",
+    description: "A responsive homepage built in React based on a Figma design, showcasing design-to-code workflow.",
+    image: icecream,
+    screenshots: [icecream,icecream1,icecream2,],
+    technologies: ["React", "JavaScript", "CSS", "HTML", "Figma", "Responsive Design"],
+    category: "Frontend/Web Development",
+    status: "Completed",
+    slug: "ice-cream-shop-react-homepage",
+    projectUrl: "https://github.com/anupagaire/icecream_shop_using_react",
+    about: "This project demonstrates converting a Figma design into a responsive React homepage. It showcases component-based structure, modern styling, and the workflow from UI/UX design to code implementation.",
+    contribution: "I implemented the Figma design using React, created reusable components, ensured a responsive layout across devices, and applied modern CSS techniques to maintain design fidelity.",
+    features: [
+      "Design-to-code workflow from Figma to React",
+      "Responsive homepage layout",
+      "Reusable React components",
+      "Modern styling techniques",
+      "Clean and intuitive UI"
+    ]
+  }
 ];

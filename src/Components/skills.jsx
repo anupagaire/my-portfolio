@@ -25,15 +25,14 @@ const Skills = () => {
     { name: "PHP", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg", category: "Backend" },
   ];
 
-  const SkillCard = ({ skill, index }) => (
+   const SkillCard = ({ skill, index }) => (
     <div
-      className={`group relative rounded-2xl p-6 border border-white/10 backdrop-blur-sm hover:border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 cursor-pointer ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      className={`group relative rounded-2xl p-6 border border-white/10  hover:border-white/20 transition-all duration-200 transform hover:scale-110 cursor-pointer ${
+        isVisible ? '' : ""
       }`}
       style={{ transitionDelay: `${index * 100}ms`, background: 'rgba(255, 255, 255, 0.05)' }}
     >
-      {/* Glow */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-600/15 via-blue-600/15 to-indigo-600/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+     
 
       <div className="relative z-10 flex flex-col items-center text-center">
         <div className="w-16 h-16 mb-4 flex items-center justify-center rounded-xl bg-white/10 group-hover:bg-white/20 transition">
@@ -60,25 +59,15 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-20 bg-black min-h-screen relative overflow-hidden"
+      className="py-2 bg-black "
     >
-      {/* Background Decorations */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-grid-white/[0.03] bg-grid-16" />
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-600/15 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-pink-600/15 rounded-full blur-2xl animate-pulse delay-2000" />
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0 "}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
-            <User className="w-8 h-8 text-purple-400" />
             <h2 className="text-4xl md:text-5xl font-bold bg-white bg-clip-text text-transparent">
               My Skills
             </h2>
           </div>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full mb-6" />
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
             Technologies and tools I use to bring ideas to life
           </p>
@@ -91,12 +80,7 @@ const Skills = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        .bg-grid-16 {
-          background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-          background-size: 16px 16px;
-        }
-      `}</style>
+      
     </section>
   );
 };
