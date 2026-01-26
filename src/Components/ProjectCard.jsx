@@ -18,8 +18,6 @@ const ProjectCard = ({ project, onClick }) => {
       <div className="relative w-full h-full bg-gray-900/80 backdrop-blur-sm rounded-2xl border border-gray-700/50 hover:border-purple-500/40 shadow-xl hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 overflow-hidden">
         
         
-        
-        
 
         <div className="relative overflow-hidden h-56">
           <img

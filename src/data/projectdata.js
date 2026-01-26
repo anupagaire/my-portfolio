@@ -34,6 +34,11 @@ import restaurent1 from "../assets/screenshots/restaurent1.png";
 import icecream from "../assets/screenshots/icecream.png";
 import icecream1 from "../assets/screenshots/icecream1.png";
 import icecream2 from "../assets/screenshots/icecream2.png";
+import pihu1 from "../assets/screenshots/pihu1.png";
+import pihu2 from "../assets/screenshots/pihu2.png";
+
+import pihu3 from "../assets/screenshots/pihu3.png";
+
 
 
 
@@ -61,9 +66,31 @@ export const projects = [
 "Interactive GUI built with PyQt5 for ease of use",
 
     ]
+  },{
+  id: 2,
+    title: "Pihu Luxe-Ecommerce Website",
+    description: "A user friendly admin and user e commerce website where user can buy products on basis of brands and admin can manage the products,orders and users.",
+    image: pihu1,
+     screenshots: [pihu2,pihu3],
+    technologies: ["Mern", "NodeJs", "ExpressJs", "MongoDb", "NextJs", "Redux", "tailwindCSS"],
+    category: "Web Development",
+    status: "Completed",
+    slug: "pihu-luxe",
+    projectUrl: "https://pihuluxe.com/",
+    about: "This is a full-featured e-commerce website built with the MERN stack (MongoDB, Express.js, React, Node.js) and Next.js for server-side rendering. The platform offers a seamless shopping experience with features like product browsing, brand-based filtering, user authentication, and an admin panel for managing products, orders, and users.",
+    contribution: "I was responsible for developing both the frontend and backend of the Pihu Luxe e-commerce website. My key contributions included: designing and implementing the user interface with Next.js and TailwindCSS for a responsive and visually appealing design, developing RESTful APIs with Node.js and Express.js for product management, order processing, and user authentication, integrating MongoDB for efficient data storage and retrieval, implementing Redux for state management across the application, creating an admin panel for managing products, orders, and users, and ensuring the website was optimized for performance and SEO.",
+    features: [
+
+"Brand-based product filtering",
+"User authentication and profile management",
+"Admin panel for product, order, and user management",
+"Responsive design for mobile and desktop",
+"Seamless shopping cart and checkout process",
+
+    ]
   },
 {
-  id: 2,
+  id: 3,
   title: "Himalayan Restaurant Website",
   description: "A fully functional restaurant website with online reservation and menu display.",
   image: restaurent1, 
@@ -72,7 +99,7 @@ export const projects = [
   category: "Frontend/Web Development",
   status: "Completed",
   slug: "himalayan-restaurant-website",
-  projectUrl: "https://github.com/anupagaire/Himalayan-Restaurant-Website",
+  projectUrl: "https://himalayanrestaurent.vercel.app/",
   about: "This project is a production-ready restaurant website featuring a fully functional online reservation system that sends booking details directly to email. The website includes a complete restaurant menu, responsive UI for mobile and desktop, and all essential sections such as home, about, services, menu, and contact.",
   contribution: "I developed the complete frontend for the Himalayan Restaurant Website, designing responsive layouts with React and CSS, implementing the reservation form with email integration using EmailJS, and ensuring cross-device compatibility. I handled the full UI/UX design from scratch, implemented interactive menus, and tested the website for usability and responsiveness.",
   features: [
@@ -87,7 +114,7 @@ export const projects = [
 ,
 
   {
-    id: 3,
+    id: 4,
     title: "Resume-Ranking-System-Using-Spacy-model",
     description: "Machine learning-based application built with Python that ranks resumes by comparing with job description using NLP techniques with SpaCy and MediaWiki for semantic matching.",
     image: resume,
@@ -109,7 +136,7 @@ export const projects = [
   },
 
   {
-    id: 4,
+    id: 5,
     title: "Ecommerce-Cosmetic-Website-Php-Mysql",
     description: "Cosmetic shopping system using html,css,js,php and mysql where user can buy products after login into the system.",
     image: ecommerce,
@@ -130,25 +157,7 @@ export const projects = [
       "Responsive design for mobile shopping"
     ]
   },
-  {
-    id: 5,
-    title: "Jewellery Shopping system-WORDPRESS",
-    description: "A wordpress based e-commerce website,which contain homepage,order,shop page, checkout page, payment method and all other features needed for e-commerce shopping.this deals with jewellery shopping.the website is fully responsive and mobile friendly.",
-    image: jew,
-    technologies: ["WordPress", "PHP", "HTML", "CSS", "MySQL"],
-    category: "Web Development",
-    status: "Completed",
-    slug: "jewellery-shopping-system",
-    projectUrl: "https://github.com/anupagaire/Jewellery-Shopping-system-wordpress-website-",
-    about: "This is a wordpress based e-commerce website,which contain homepage,order,shop page, checkout page, payment method and all other features needed for e-commerce shopping.this deals with jewellery shopping.",
-    contribution: "I designed this website when i was in fourth sem of my bachelors degree.This was solo project and i did all the work by myself.I designed the complete website using wordpress and woocommerce plugin for e-commerce functionality like cart ,checkout etc.I also customized the theme and use elementor page builder for designing the pages.I also optimized the website for speed and performance.",
-    features: [
-      "WordPress-based content management",
-      "Custom jewelry product displays",
-      "High-quality image galleries",
-      "Inventory tracking",
-    ]
-  },
+  
   {
     id: 6,
     title: "Explore Nepal",
@@ -203,7 +212,8 @@ export const projects = [
     category: "Web Development",
     status: "Completed",
     slug: "dp-portfolio-website",
-    projectUrl: "https://dp.squarelabs.com.np/",
+    // projectUrl: "https://dp.squarelabs.com.np/",
+    projectUrl:"https://github.com/anupagaire/dp_portfolio",
     about: "A personal portfolio website built with React and TailwindCSS to showcase projects, research, and achievement information. The website features a clean and modern design, with components for projects, research publications, and achievement section and used project and research data from the backend api provided by the professor and displayed in slider and separate page format .i also use lenis library for smooth scrolling effect.",
     contribution: "During my internship at SquareLabs, I was responsible for developing the personal portfolio website for a professor. I handled the complete frontend development using React and TailwindCSS, ensuring a responsive and visually appealing design. I also integrated data from the backend API provided by the professor to dynamically display projects and research information.",
     features: [
@@ -301,5 +311,24 @@ export const projects = [
       "Modern styling techniques",
       "Clean and intuitive UI"
     ]
-  }
+  },
+  {
+    id: 12,
+    title: "Jewellery Shopping system-WORDPRESS",
+    description: "A wordpress based e-commerce website,which contain homepage,order,shop page, checkout page, payment method and all other features needed for e-commerce shopping.this deals with jewellery shopping.the website is fully responsive and mobile friendly.",
+    image: jew,
+    technologies: ["WordPress", "PHP", "HTML", "CSS", "MySQL"],
+    category: "Web Development",
+    status: "Completed",
+    slug: "jewellery-shopping-system",
+    projectUrl: "https://github.com/anupagaire/Jewellery-Shopping-system-wordpress-website-",
+    about: "This is a wordpress based e-commerce website,which contain homepage,order,shop page, checkout page, payment method and all other features needed for e-commerce shopping.this deals with jewellery shopping.",
+    contribution: "I designed this website when i was in fourth sem of my bachelors degree.This was solo project and i did all the work by myself.I designed the complete website using wordpress and woocommerce plugin for e-commerce functionality like cart ,checkout etc.I also customized the theme and use elementor page builder for designing the pages.I also optimized the website for speed and performance.",
+    features: [
+      "WordPress-based content management",
+      "Custom jewelry product displays",
+      "High-quality image galleries",
+      "Inventory tracking",
+    ]
+  },
 ];
