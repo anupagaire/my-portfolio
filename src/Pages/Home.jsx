@@ -9,6 +9,7 @@ import InternshipExperience from "../Components/InternshipExperince";
 import AboutSection from "../Components/AboutUs";
 import { projects } from "../data/projectdata.js";
 import { ResearchData } from "../data/researchdata.js";
+import ResearchSection from '../Components/ResearchSection';
 
 import profileImage from "../assets/10.jpg"; 
 import cvPdf from "../assets/cv.pdf"; // Ensure this path is correct
@@ -315,7 +316,7 @@ const Home = () => {
         </div>
       </section>
       <AboutSection />
-      
+      <ResearchSection/>
       <div className="w-full py-10 bg-slate-800">
         <ProjectSlider
           projects={projects}

@@ -1,125 +1,147 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, User, Briefcase, Code2, BookOpen, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+
+const navItems = [
+  { name: 'Home', path: '/', isScroll: false },
+  { name: 'About', path: 'about', isScroll: true },
+  { name: 'Projects', path: '/projects', isScroll: false },
+  { name: 'Skills', path: 'skills', isScroll: true },
+  { name: 'Internship', path: 'internships', isScroll: true },
+  { name: 'Research', path: '/research', isScroll: false },
+];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  const isHome = location.pathname === '/';
+
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false);
+  // close mobile menu when page changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      closeMenu();
     }
+    setIsMenuOpen(false);
   };
 
-  const navItems = [
-    { name: 'Home', path: '/', icon: Home, isScroll: false },
-    { name: 'About', path: 'about', icon: User, isScroll: true },
-    { name: 'Projects', path: '/projects', icon: Code2, isScroll: false },
-    { name: 'Skills', path: 'skills', icon: Sparkles, isScroll: true },
-    { name: 'Internship', path: 'internships', icon: Briefcase, isScroll: true },
-    { name: 'Research', path: '/research', icon: BookOpen, isScroll: false },
-    // { name: 'Experience', path: '/experience', icon: Briefcase, isScroll: false },
-  ];
+  // Home: dark theme | Other pages: light theme
+  const theme = isHome
+    ? {
+        bar: scrolled
+          ? 'bg-black/70 backdrop-blur-md border-b border-white/10'
+          : 'bg-transparent border-b border-transparent',
+        text: 'text-white',
+        link: 'text-white/60 hover:text-white',
+        active: 'text-white border-white',
+        cta: 'border-white/40 text-white hover:bg-white hover:text-black',
+        mobile: 'bg-black/95 border-white/10',
+        mobileLink: 'text-white/70 hover:text-white hover:bg-white/10',
+      }
+    : {
+        bar: 'bg-white/90 backdrop-blur-md border-b border-gray-200',
+        text: 'text-black',
+        link: 'text-gray-500 hover:text-black',
+        active: 'text-black border-black',
+        cta: 'border-black text-black hover:bg-black hover:text-white',
+        mobile: 'bg-white border-gray-200',
+        mobileLink: 'text-gray-600 hover:text-black hover:bg-gray-100',
+      };
 
-  // Filter nav items based on route
-  const displayedNavItems = location.pathname === '/' ? navItems : navItems.filter(item => ['Home', 'Projects','Research'].includes(item.name));
+  // On other pages show only main pages, on home show everything
+  const displayedNavItems = isHome
+    ? navItems
+    : navItems.filter((item) => ['Home', 'Projects', 'Research'].includes(item.name));
+
+  const isActive = (item) =>
+    !item.isScroll &&
+    (item.path === '/' ? location.pathname === '/' : location.pathname.startsWith(item.path));
+
+  const renderItem = (item, mobile = false) => {
+    const base = mobile
+      ? `block w-full text-left px-4 py-3 rounded-lg text-sm font-medium ${theme.mobileLink}`
+      : `text-sm font-medium pb-1 border-b-2 transition-colors duration-200 ${
+          isActive(item) ? theme.active : `border-transparent ${theme.link}`
+        }`;
+
+    return item.isScroll ? (
+      <button key={item.name} onClick={() => scrollToSection(item.path)} className={base}>
+        {item.name}
+      </button>
+    ) : (
+      <Link key={item.name} to={item.path} className={base}>
+        {item.name}
+      </Link>
+    );
+  };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled 
-          ? 'bg-slate-900/80 backdrop-blur-xl border-b border-white/10 shadow-2xl' 
-          : 'bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${theme.bar}`}>
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="group flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-lg">AG</span>
-            </div>
-            <span className="hidden sm:block text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          {/* Logo */}
+          <Link to="/" className={`flex items-center gap-3 ${theme.text}`}>
+            <span className="w-9 h-9 border-2 border-current rounded-md flex items-center justify-center text-sm font-bold tracking-tight">
+              AG
+            </span>
+            <span className="hidden sm:block text-lg font-semibold tracking-tight">
               Anupa Gaire
             </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-1">
-            {displayedNavItems.map(({ name, path, icon, isScroll }) => (
-              isScroll ? (
-                <button
-                  key={name}
-                  onClick={() => scrollToSection(path)}
-                  className="group relative px-4 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 flex items-center gap-2"
-                >
-                  {React.createElement(icon, { className: 'w-4 h-4' })}
-                  <span>{name}</span>
-                </button>
-              ) : (
-                <Link
-                  key={name}
-                  to={path}
-                  className="group relative px-4 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 flex items-center gap-2"
-                >
-                  {React.createElement(icon, { className: 'w-4 h-4' })}
-                  <span>{name}</span>
-                </Link>
-              )
-            ))}
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-8">
+            {displayedNavItems.map((item) => renderItem(item))}
           </div>
 
+          {/* Desktop CTA */}
           <div className="hidden md:block">
             <Link
               to="/contact"
-              className="bg-purple-600 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:scale-105 transition"
+              className={`px-5 py-2 text-sm font-medium border rounded-full transition-colors duration-200 ${theme.cta}`}
             >
               Let's Connect
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button onClick={toggleMenu} className="w-10 h-10 bg-white/10 rounded-lg text-white">
-              {isMenuOpen ? <X /> : <Menu />}
-            </button>
-          </div>
+          {/* Mobile button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={`md:hidden p-2 ${theme.text}`}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        <div className={`md:hidden transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <div className="px-2 pt-2 pb-3 bg-slate-900/90 rounded-2xl mt-2">
-            {displayedNavItems.map(({ name, path, icon, isScroll }) => (
-              isScroll ? (
-                <button
-                  key={name}
-                  onClick={() => scrollToSection(path)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/70 hover:text-white hover:bg-white/10 w-full text-left"
-                >
-                  {React.createElement(icon, { className: 'w-5 h-5' })}
-                  {name}
-                </button>
-              ) : (
-                <Link
-                  key={name}
-                  to={path}
-                  onClick={closeMenu}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/70 hover:text-white hover:bg-white/10"
-                >
-                  {React.createElement(icon, { className: 'w-5 h-5' })}
-                  {name}
-                </Link>
-              )
-            ))}
-          </div>
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 border-t ${theme.mobile} ${
+          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 border-transparent'
+        }`}
+      >
+        <div className="px-4 py-3 space-y-1">
+          {displayedNavItems.map((item) => renderItem(item, true))}
+          <Link
+            to="/contact"
+            className={`block text-center mt-2 px-4 py-2.5 text-sm font-medium border rounded-full ${theme.cta}`}
+          >
+            Let's Connect
+          </Link>
         </div>
       </div>
     </nav>

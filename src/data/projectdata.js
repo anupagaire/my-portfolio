@@ -331,4 +331,23 @@ export const projects = [
       "Inventory tracking",
     ]
   },
+  {
+    id: 12,
+    title: "Mt ISa Caravan Park-WORDPRESS",
+    description: "A wordpress based site based on Australia where user can book rooms for caravan parks.",
+    image: jew,
+    technologies: ["WordPress", ],
+    category: "Web Development",
+    status: "Completed",
+    slug: "isacaravan",
+    projectUrl: "https://isacaravanpark.com.au",
+    about: "This is a wordpress based e-commerce website,which contain homepage,order,shop page, checkout page, payment method and all other features needed for e-commerce shopping.this deals with jewellery shopping.",
+    contribution: "I designed this website when i was in fourth sem of my bachelors degree.This was solo project and i did all the work by myself.I designed the complete website using wordpress and woocommerce plugin for e-commerce functionality like cart ,checkout etc.I also customized the theme and use elementor page builder for designing the pages.I also optimized the website for speed and performance.",
+    features: [
+      "WordPress-based content management",
+      "Custom jewelry product displays",
+      "High-quality image galleries",
+      "Inventory tracking",
+    ]
+  },
 ];

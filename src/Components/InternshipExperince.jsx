@@ -11,7 +11,7 @@ const InternshipExperience = () => {
     {
       title: "Web Development Intern",
       company: "SquareLabs",
-      duration: "July 2025 – Present",
+      duration: "July 15,2025 – Oct 15,2015",
       description: "Learning and working with Tailwind CSS, React, Node.js, and WordPress. Practicing modern web development standards in a team environment.",
       technologies: ["Tailwind CSS", "React", "Node.js", "MongoDb", "WordPress"],
       achievements: [
